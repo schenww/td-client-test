@@ -9,7 +9,7 @@ apikey = "3867/4c6a67efbbc95f475ac8c9ec092f87b4c01b8c99"
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--database', required=True, help='Required, database name')
 parser.add_argument('-t', '--table', required=True, help='Required, table name')
-parser.add_argument('-f', '--format', nargs='?', default='tabular', help='Optional and specifies output file format, default is csv')
+parser.add_argument('-f', '--format', nargs='?', default='tabular', choices=['csv','tabular'], help='Optional and specifies output file format, default is csv')
 parser.add_argument('-c', '--column', nargs='?', default='*', help='Optional and specifies column(s) to query, if not specified, all columns will be queried, use comma to separate column names, e.g. c1,c2,c3')
 parser.add_argument('-l', '--limit', nargs='?', default='0', type=int, help='Optional and specifies number of rows to get in the query, default is all records')
 parser.add_argument('-m', '--min', nargs='?', default='NULL', help='Optional and specifies the minimum timestamp, default is NULL')
