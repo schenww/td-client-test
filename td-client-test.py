@@ -55,5 +55,4 @@ try:
       print "The query returns 0 row"
     sys.exit()
 except RuntimeError as e:
-    #sys.exit("Failed to execute the query or download the query results to a file...")
     print e
