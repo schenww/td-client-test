@@ -33,7 +33,8 @@ print qry
 if args.limit > 0:
   qry += ' LIMIT '
   qry += str(args.limit)
-  # Prepare submitting job
+
+# Prepare submitting job
 # database name
 db = args.database
 
