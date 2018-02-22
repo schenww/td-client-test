@@ -5,15 +5,17 @@ Requirements:
 Python:
   python 2.7.x
   prettytable-0.7.2
+  dateutil
   
 td:
  td-client
 
 =============================================
 
-To install prettytable:
+To install prettytable and dateutil:
 =============================================
 $sudo pip2.7 install https://pypi.python.org/packages/source/P/PrettyTable/prettytable-0.7.2.tar.bz2
+$sudo pip2.7 install python-dateutil
 =============================================
 
 
@@ -53,5 +55,5 @@ optional arguments:
 Command line examples:
 =============================================
   $python td-client-test.py -d shan_test_db -t movie_rating -l 10 -e presto -f csv
-  $python td-client-test.py -d shan_test_db -t movie_rating -c film,genre -l 10 -e presto -min 2011 -MAX 2018
+  $python td-client-test.py -d shan_test_db -t movie_rating -c film,genre -l 10 -e presto -min 2011-01-12 -MAX 2018-12-30T11:02:22
 =============================================
