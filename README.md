@@ -1,19 +1,24 @@
 # td-client-test
 
 Requirements:
-
+=============================================
 Python:
   python 2.7.x
   prettytable-0.7.2
   
 td:
  td-client
- 
+
+=============================================
+
 To install prettytable:
+=============================================
 $sudo pip2.7 install https://pypi.python.org/packages/source/P/PrettyTable/prettytable-0.7.2.tar.bz2
+=============================================
 
 
 To get help:
+=============================================
 $ python t1.py -h
 usage: t1.py [-h] -d DATABASE -t TABLE [-f [{csv,tabular}]] [-c [COLUMN]]
              [-l [LIMIT]] [-m [MIN]] [-M [MAX]] [-e [{hive,presto}]]
@@ -43,7 +48,10 @@ optional arguments:
   -e [{hive,presto}], --engine [{hive,presto}]
                         Optional and specifies the query engine, default is
                         "presto"
+=============================================
 
 Command line examples:
+=============================================
   $python td-client-test.py -d shan_test_db -t movie_rating -l 10 -e presto -f csv
   $python td-client-test.py -d shan_test_db -t movie_rating -c film,genre -l 10 -e presto -min 2011 -MAX 2018
+=============================================
