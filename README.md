@@ -45,5 +45,5 @@ optional arguments:
                         "presto"
 
 Command line examples:
-  $python t1.py -d shan_test_db -t movie_rating -l 10 -e presto -f csv
-  $python t1.py -d shan_test_db -t movie_rating -c film,genre -l 10 -e presto -min 2011 -MAX 2018
+  $python td-client-test.py -d shan_test_db -t movie_rating -l 10 -e presto -f csv
+  $python td-client-test.py -d shan_test_db -t movie_rating -c film,genre -l 10 -e presto -min 2011 -MAX 2018
