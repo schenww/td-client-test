@@ -3,6 +3,9 @@ import argparse
 import os
 import sys
 
+# import dateutil parser
+from dateutil.parser import parse as dtp
+
 # import prettytable for tabular print out
 from prettytable import PrettyTable
 
@@ -24,15 +27,19 @@ parser.add_argument('-M', '--MAX', nargs='?', default='NULL', help='Optional and
 parser.add_argument('-e', '--engine', nargs='?', default='presto', choices=['hive','presto'], help='Optional and specifies the query engine, default is "presto"')
 args = parser.parse_args()
 
+# convert timestamp strings to epoch
+dt_min = dtp(args.min).strftime('%s')
+dt_max = dtp(args.MAX).strftime('%s')
+
 # construct the query
 qry = 'select '
 qry += args.column
 qry += ' from '
 qry += args.table
 qry += ' where TD_TIME_RANGE(time, '
-qry += args.min
+qry += dt_min
 qry += ', '
-qry += args.MAX
+qry += dt_max
 qry += ')'
 print qry
 
