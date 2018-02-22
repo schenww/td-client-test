@@ -1,0 +1,14 @@
+$python t1.py -d shan_test_db -t movie_rating -l 10 -e presto -f csv
+
+select * from movie_rating where TD_TIME_RANGE(time, NULL, NULL)
+
+['(500) Days of Summer', 'Comedy', '87', '81', '8', '2009', '1518740864']
+['10,000 B.C.', 'Adventure', '9', '44', '105', '2008', '1518740864']
+['12 Rounds', 'Action', '30', '52', '20', '2009', '1518740864']
+['127 Hours', 'Adventure', '93', '84', '18', '2010', '1518740864']
+['17 Again', 'Comedy', '55', '70', '20', '2009', '1518740864']
+['2012', 'Action', '39', '63', '200', '2009', '1518740864']
+['27 Dresses', 'Comedy', '40', '71', '30', '2008', '1518740864']
+['30 Days of Night', 'Horror', '50', '57', '32', '2007', '1518740864']
+['30 Minutes or Less', 'Comedy', '43', '48', '28', '2011', '1518740864']
+['50/50', 'Comedy', '93', '93', '8', '2011', '1518740864']
