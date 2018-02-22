@@ -40,10 +40,9 @@ print qry
 if args.limit > 0:
   qry += ' LIMIT '
   qry += str(args.limit)
-
 # get the output format choice
 outfmt = args.format
-  
+
 ########### Prepare submitting job #############
 # database name
 db = args.database
@@ -56,31 +55,36 @@ try:
     # query submitted
     job = client.query(db, qry, type=args.engine)
     job.wait()
-    
+
     # open output file to write to
     f = open(outfilename,"w")
-    
+
     # counter for returned row(s)
     cnt = 0
-    
+
     # if output to csv format
     if outfmt == 'csv':
-      # print query result header
-      #print args.column
-      #f.write("%s\n" % args.column)
+      # print query result header, but if "*" is used, skip table header
+      if args.column != "*":
+        f.write("%s\n" % args.column)
       # get query return
       for row in job.result():
         cnt += 1
-        print row
-        f.write("%s\n" % str(row))
+        # convert unicode list to list
+        row_val_lst = [str(i).strip() for i in row]
+        print row_val_lst
+        f.write("%s\n" % row_val_lst)
       f.close()
-    # output to tabular format
+    # if output to tabular format, but if "*" is used, skip table header, just use default "Field1, Field2, ..."
     else:
-      #t = PrettyTable(args.column)
+      if args.column == "*":
+        t = PrettyTable()
+      else:
+        t = PrettyTable(args.column.split(","))
       for row in job.result():
         cnt += 1
-        t.add_row(str(row))
-        f.write("%s\n" % t)
+        t.add_row(row)
+      f.write("%s\n" % str(t))
       f.close()
     if cnt == 0:
       print "The query returns 0 row"
