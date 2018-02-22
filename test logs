@@ -56,8 +56,8 @@ select * from movie_rating where TD_TIME_RANGE(time, NULL, NULL)
 +-----------------------+-----------+---------+---------+---------+---------+------------+
 
 ######## test 5
-$ python td-client-test.py -d shan_test_db -t movie_rating -c film,genre,year_of_release -l 10 -m 540966830 -M 1519274072
-select film,genre,year_of_release from movie_rating where TD_TIME_RANGE(time, 540966830, 1519274072)
+$ python td-client-test.py -d shan_test_db -t movie_rating -c film,genre,year_of_release -l 10 -m 2008-01-01 -M 2011-12-31
+select film,genre,year_of_release from movie_rating where TD_TIME_RANGE(time, 1199174400, 1325318400)
 
 +-----------------------+-----------+-----------------+
 |          film         |   genre   | year_of_release |
@@ -114,8 +114,8 @@ td-client-test.py: error: argument -l/--limit: invalid int value: 'a'
 
 
 ######## test 10
-$ python td-client-test.py -d shan_test_db -t movie_rating -c film,genre,year_of_release -l 10 -m 540966830 -M 1519274070 -f csv
-select film,genre,year_of_release from movie_rating where TD_TIME_RANGE(time, 540966830, 1519274070)
+$ python td-client-test.py -d shan_test_db -t movie_rating -c film,genre,year_of_release -l 10 -m 2008-01-01 -M 2011-12-31 -f csv
+select film,genre,year_of_release from movie_rating where TD_TIME_RANGE(time, 1199174400, 1325318400)
 
 film,genre,year_of_release
 ['(500) Days of Summer', 'Comedy', '2009']
